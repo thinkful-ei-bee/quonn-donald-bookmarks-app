@@ -8,6 +8,10 @@ const store = (function(){
         filterVal: null
     }
 
+    const errorCode = {
+        errorMessage: ""
+    }
+
     const addNewBM = function(item) {
         item.detailed = false;
         this.bookmarks.push(item);
@@ -26,6 +30,8 @@ const store = (function(){
         bookmarks: [],
         addNewBM,
         removeBM,
-        ratingFilter
+        ratingFilter,
+        errorCode
+        
     }
 })();

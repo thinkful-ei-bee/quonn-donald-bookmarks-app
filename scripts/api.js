@@ -34,6 +34,8 @@ const api = (function() {
     return fetch(`${BASE_URL}` + "/bookmarks", options);
   };
 
+  
+
   return {
     getItems,
     createBM,

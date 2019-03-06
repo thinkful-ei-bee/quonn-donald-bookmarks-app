@@ -7,12 +7,7 @@ function startApp() {
         store.addNewBM(item)});
       bookmarkList.renderBM();
     });
-  bookmarkList.handleSubmit();
-  bookmarkList.handleCreateFormBtn();
-  bookmarkList.renderCreateForm();
-  bookmarkList.handleDeleteBtn();
-  bookmarkList.handleDetailedBtn();
-  bookmarkList.filterBMList();
+  bookmarkList.bindEventHandlers();
 }
 
 function handleBookMarkApp() {

@@ -2,6 +2,8 @@ const bookmarkList = (function() {
 
   function generateBookmarkElement(bookmark) {
     
+    $("#errorBox").html(store.errorCode.errorMessage);
+
     let detailedBox;
 
     if(bookmark.detailed){
@@ -81,10 +83,22 @@ const renderCreateForm = function(){
         .createBM(title, url, desc, parseInt(rating))
         .then(res => res.json())
         .then(newBM => {
-          store.addNewBM(newBM);
+          console.log(newBM.message);
+          if(newBM.message){
+            store.errorCode.errorMessage = newBM.message;
+          }else{
+            store.errorCode.errorMessage = "";
+          }
+          
+          
           renderBM();
+          store.errorCode.errorMessage = "";
+          store.addNewBM(newBM)
+          $("#title").val("");
+          $("#url").val("");
+          $("#desc").val("");
+          $("input[name=rating]:checked").val("");
         });
-        
     });
   };
 
@@ -133,12 +147,22 @@ const renderCreateForm = function(){
   });
   }
 
+  const bindEventHandlers = function(){
+    handleSubmit();
+    handleCreateFormBtn();
+    renderCreateForm();
+    handleDeleteBtn();
+    handleDetailedBtn();
+    filterBMList();
+    }
+
   return { handleSubmit,
     renderBM,
     handleCreateFormBtn,
     renderCreateForm,
     handleDeleteBtn,
     handleDetailedBtn,
-    filterBMList
+    filterBMList,
+    bindEventHandlers
   };
 })();
