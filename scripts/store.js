@@ -1,3 +1,4 @@
+"use strict";
 const store = (function(){
     const defaultLayout = {
         createFormVis: false
