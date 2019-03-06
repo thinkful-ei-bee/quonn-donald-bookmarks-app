@@ -1,9 +1,19 @@
 const api = (function() {
-  const BASE_URL = "https://thinkful-list-api.herokuapp.com/dq";
+  const BASE_URL = "https://thinkful-list-api.herokuapp.com/dq1";
 
   const getItems = function() {
     return fetch(`${BASE_URL}` + "/bookmarks");
   };
+
+  const deleteItems = function(id){
+    let options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    return fetch(`${BASE_URL}` + "/bookmarks/" + id,options);
+  }
 
   const createBM = function(title, url, desc, rating) {
     const newbM = JSON.stringify({
@@ -26,6 +36,7 @@ const api = (function() {
 
   return {
     getItems,
-    createBM
+    createBM,
+    deleteItems
   };
 })();

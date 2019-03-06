@@ -18,11 +18,34 @@ button:hover:disabled {
   cursor: default;
 }
 
+.btn{
+  padding: 6px;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn > a{
+  text-decoration: none;
+  color: white;
+}
+
 .hidden {
   display: none;
 }
 
-#shopping-list-item {
+
+#detailedBox{
+  border: 1px solid #333;
+  padding: 5px;
+  margin: 5px;
+  width: 50%;
+}
+
+/* .createBox{
+  display: none;
+} */
+/* #shopping-list-item {
   width: 250px;
 }
 
@@ -40,14 +63,16 @@ button:hover:disabled {
   margin-bottom: 20px;
   border: 1px solid grey;
   padding: 20px;
-}
+} */
 
-.shopping-item {
-  display: block;
-  color: grey;
+.bookmarkItem {
+  /* display: block; */
+  color: #666;
   font-style: italic;
   font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  border: 1px solid #333;
+  padding:10px;
 }
 
 .shopping-item__checked {
