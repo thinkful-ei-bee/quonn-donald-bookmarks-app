@@ -1,3 +1,5 @@
+'use strict';
+
 const bookmarkList = (function() {
 
   function generateBookmarkElement(bookmark) {
@@ -52,37 +54,44 @@ const bookmarkList = (function() {
   }
 
   const generateBookmarkString = function(bookmarkList){
-    const items = bookmarkList.map(item => generateBookmarkElement(item));
-    return items.join("");
+    const items = bookmarkList.map(item => generateBookmarkElement(item)); 
+    // generates html string for each individual bookmark
+    return items.join(""); 
+    //joins html for all bookmarks
   }
 
-  const renderBM = function(){
+  const renderBM = function(){ // renders the page with bookmarks from API endpoint
     let items = [...store.bookmarks];
     if(store.ratingFilter.filterVal){
       items = items.filter(item => item.rating === store.ratingFilter.filterVal);
       console.log(items);
     }
-    const bookmarkString = generateBookmarkString(items);
+    const bookmarkString = generateBookmarkString(items); 
+    // creates HTML string to add to DOM
     $('.bmContainer').html(bookmarkString);
 }
 
 const renderCreateForm = function(){
-      $('.createBox').toggleClass("hidden");
+      $('.createBox').toggleClass("hidden"); // toggles class
 }
 
   const handleSubmit = function() {
     $("#formCreate").on("click", "#submit", function(event) {
+      // takes input from form
       event.preventDefault();
       const title = $("#title").val();
       const url = $("#url").val();
       const desc = $("#desc").val();
       const rating = $("input[name=rating]:checked").val();
+      //makes API POST call to create and add new bookmarks to endpoint
       api
         .createBM(title, url, desc, parseInt(rating))
         .then(res => res.json())
         .then(newBM => {
-          store.addNewBM(newBM);
-          renderBM();
+          // adds a copy of recently created bookmark
+          // to local store
+          store.addNewBM(newBM); 
+          renderBM(); // rerenders page with updated endpoint values
         });
         
     });
@@ -90,22 +99,26 @@ const renderCreateForm = function(){
 
   const handleCreateFormBtn = function(){
     $('#createBtn').on("click", function(){
-      if(!store.defaultLayout.createFormVis){
+        // updates store to know to enable 
+        // create form
+      if(!store.defaultLayout.createFormVis){ 
         store.defaultLayout.createFormVis = true;
       }else{
         store.defaultLayout.createFormVis = false;
       }
-      renderCreateForm();
+      renderCreateForm(); // toggles hidden class for div.createbox
     });
   };
 
   const handleDeleteBtn = function(){
-    let id;
     $('.bmContainer').on("click",".deleteBtn", function(){
-      id = $(this).closest('div.bookmarkItem').attr("id");
+      // captures id of the delete button of the selected
+      // bookmark
+      let id = $(this).closest('div.bookmarkItem').attr("id"); 
+      // makes API delete call using ID to remove bookmark from endpoint
       api.deleteItems(id).then(res => res.json())
       .then(bm => {
-        store.removeBM(id);
+        store.removeBM(id); // deletes bookmark in local storage
         renderBM();
       });
       renderBM();
@@ -113,20 +126,21 @@ const renderCreateForm = function(){
   }
 
   const handleDetailedBtn = function(){
-    let bmId;
     $('.bmContainer').on("click",".detailed", function(){
-      bmId = $(this).closest('div.bookmarkItem').attr("id");
-      store.bookmarks.forEach(item => {
-        if(item.id === bmId){
-          item.detailed = !item.detailed;
+      let bmId = $(this).closest('div.bookmarkItem').attr("id");
+      // on button press, updates "detailed" property of the selected bookmark 
+      // using its ID
+      store.bookmarks.forEach(bookmark => {
+        if(bookmark.id === bmId){
+          bookmark.detailed = !bookmark.detailed;
         }
       });
       renderBM();
     });
   }
 
-  const filterBMList = function(){
-    $("select#ratingFilter").change(function(){
+  const handleFilter = function(){
+    $("select#ratingFilter").change(function(){ // listens for action on the dropdown
       var selected= $(this).children("option:selected").val();
       store.ratingFilter.filterVal = selected;
       renderBM();
@@ -139,6 +153,6 @@ const renderCreateForm = function(){
     renderCreateForm,
     handleDeleteBtn,
     handleDetailedBtn,
-    filterBMList
+    handleFilter
   };
 })();
