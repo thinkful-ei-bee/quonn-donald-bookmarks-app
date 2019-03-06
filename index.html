@@ -59,20 +59,20 @@
     <!-- Book mark creation form -->
     <div class="createBox">
       <h3>Create Form</h3>
-      <form id="formCreate">
+      <form id="formCreate" required>
         <input
           id="title"
           name="title"
           type="text"
           placeholder="Enter Title Here"
         />
-        <input id="url" name="link" type="text" placeholder="Enter URL here" />
+        <input id="url" name="link" type="text" placeholder="Enter URL here" required/>
         <input
           id="desc"
           name="description"
           type="text"
           placeholder="Description goes here"
-        />
+        required/>
         <p>Select a rating:</p>
         <div>
           <input id="rating" type="radio" id="5star" name="rating" value="5" />

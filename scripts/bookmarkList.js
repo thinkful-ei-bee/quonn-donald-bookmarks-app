@@ -84,7 +84,7 @@ const renderCreateForm = function(){
           store.addNewBM(newBM);
           renderBM();
         });
-
+        
     });
   };
 
