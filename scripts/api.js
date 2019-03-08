@@ -1,5 +1,6 @@
 const api = (function() {
   const BASE_URL = "https://thinkful-list-api.herokuapp.com/dq1";
+  const remoteBookmarks = [];
 
   const getItems = function() {
     return fetch(`${BASE_URL}` + "/bookmarks");
@@ -12,7 +13,9 @@ const api = (function() {
         "Content-Type": "application/json"
       }
     }
-    return fetch(`${BASE_URL}` + "/bookmarks/" + id,options);
+    const deletion = fetch(`${BASE_URL}` + "/bookmarks/" + id,options);
+    console.log(deletion);
+    return deletion;
   }
 
   const createBM = function(title, url, desc, rating) {
@@ -31,7 +34,9 @@ const api = (function() {
       body: newbM
     };
 
-    return fetch(`${BASE_URL}` + "/bookmarks", options);
+    const remoteBM =  fetch(`${BASE_URL}` + "/bookmarks", options);
+    remoteBookmarks.push(remoteBM);
+    return remoteBM;
   };
 
   

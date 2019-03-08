@@ -1,4 +1,5 @@
 "use strict";
+const bookmarks = [];
 const store = (function(){
     const defaultLayout = {
         createFormVis: false
@@ -27,11 +28,10 @@ const store = (function(){
 
     return {
         defaultLayout,
-        bookmarks: [],
         addNewBM,
         removeBM,
         ratingFilter,
-        errorCode
-        
+        errorCode,
+        bookmarks
     }
 })();

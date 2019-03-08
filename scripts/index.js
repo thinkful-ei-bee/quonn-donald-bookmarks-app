@@ -1,4 +1,5 @@
 function startApp() {
+bookmarkList.bindEventListeners();
   api
     .getItems()
     .then(res => res.json())
@@ -7,10 +8,11 @@ function startApp() {
         store.addNewBM(item)});
       bookmarkList.renderBM();
     });
-  bookmarkList.bindEventHandlers();
+  
 }
 
 function handleBookMarkApp() {
+  console.log(api.remoteBookmarks);
   startApp();
 }
 

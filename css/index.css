@@ -1,9 +1,29 @@
 * {
+  /* margin:auto; */
+  font-family: "Oswald", sans-serif;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 body {
+  padding: 0;
   font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+header{
+  background: #333;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  color: white;
+  box-shadow: 1px 1px 1px #999;
+}
+
+header h1{
+  font-size: 30px;
+  margin: 0;
 }
 
 button, input[type="text"] {
@@ -23,6 +43,11 @@ button:hover:disabled {
   background: #333;
   color: white;
   border-radius: 5px;
+  font-size: 14px;
+}
+
+.btn:focus{
+outline: none;
 }
 
 .btn > a{
@@ -30,51 +55,236 @@ button:hover:disabled {
   color: white;
 }
 
+#createBtn{
+  position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 34px;
+    text-shadow: 1px 1px 1px #999;
+    box-shadow: 1px 1px 1px #999;
+}
+
+#createBtn:focus{
+  outline: none;
+}
+
+#formCreate{
+  margin-top: 15px;
+}
+
+.deleteBtn{
+    background: lightgray;
+    border: none;
+    height: 35px;
+  width: 35px;
+    box-shadow: 1px 1px 1px #999;
+    font-size: 17px;
+    text-shadow: 1px 1px 1px #999;
+    font-weight: 700;
+    color: red;
+}
+
+.detailed,#bmTitle{
+  display: inline-block;
+}
+
+.fa-star:before {
+  content: "\f005";
+  text-shadow: 1px 1px 1px #999;
+}
+
+#bmTitle{ font-size: 16px;
+margin-bottom: 0;}
+
+.detailed{
+  height: 35px;
+  width: 35px;
+  border: none;
+  color: white;
+  background: #333;
+  box-shadow: 1px 1px 1px #999;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.innerBox{
+  position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+    background: rgb(200,200, 200);
+    height: 100vh;
+    box-shadow: 1px 1px 1px #999;
+    padding: 15px;
+}
+
+#errorBox{
+  margin-bottom: 5px;
+}
+.innerBox h1{
+  margin-bottom: 0;
+}
+
+.stars .fa-stars{
+  float: left;
+}
+input:focus,textarea:focus{
+  outline: none;
+}
+
+input,textarea{
+margin-bottom: 10px;
+background: none;
+border-top: none;
+border-left: none;
+border-right: none;
+border-bottom: 1px solid #000;
+}
+
+textarea{
+  padding-left: 5px;
+}
+
+.bmContent{
+  padding-left: 5px;
+  text-align: left;
+}
+
+/* #ratingBox,.stars, label{
+  float:left;
+} */
+
 .hidden {
   display: none;
 }
 
+#submit{
+  background: #999;
+}
 
 #detailedBox{
-  border: 1px solid #333;
-  padding: 5px;
-  margin: 5px;
-  width: 50%;
+  border: none;
+    padding: 5px;
+    margin: 5px;
+    width: 80%;
+    border-top: .5px solid #00000024;
+    margin-top: 20px;
 }
 
-/* .createBox{
-  display: none;
-} */
-/* #shopping-list-item {
-  width: 250px;
+#detailedBox p{
+  margin: 8px 0;
+  font-size: 16px;
 }
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+.bmContainer{
+  padding: 0 15px;
 }
-
-.shopping-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.shopping-list > li {
-  margin-bottom: 20px;
-  border: 1px solid grey;
-  padding: 20px;
-} */
-
 .bookmarkItem {
   /* display: block; */
+  border: 1px solid #99999929;
+    box-shadow: 1px 1px 1px #999;
+    border-radius: 5px;
   color: #666;
   font-style: italic;
   font-size: 20px;
   margin-bottom: 25px;
-  border: 1px solid #333;
   padding:10px;
+  min-width: auto;
+  width: auto;
 }
 
-.shopping-item__checked {
-  text-decoration: line-through;
+.filterHeader{
+  display: inline-block;
+}
+#ratingFilter{
+  color: #666;
+    font-style: italic;
+  display: inline-block;
+  width: 22%;
+  border: .5px solid black;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 3px;
+  padding: 5px 0;
+  display: inline-block;
+}
+
+#ratingBox{
+  float: right;
+    margin-top: 8px;
+}
+
+#ratingFilter:focus{
+  outline: none;
+}
+
+.ratingFilterBox{
+  margin-top: 125px;
+  margin-bottom: 20px;
+  color: #666;
+    font-style: italic;
+}
+
+.urlBtnBox a{
+  font-size: 8px;
+}
+.urlBtnBox a:hover{
+color: blue;
+font-size: 16px;
+}
+
+.btnBox{
+  margin-bottom: 10px;
+}
+
+/* Utility Classes */
+.redText{
+  color: red;
+}
+.blueText{
+  color:blue;
+}
+
+.smallText{
+  font-size: 12px;
+}
+/* Media Queries */
+@media (min-width: 600px) {
+  .ratingFilterBox{
+    margin-top: 90px;
+  }
+  #ratingFilter{
+    display: inline-block;
+    width: 15%;
+  }
+  .bookmarkItem {
+    max-width: 600px;
+    width: 550px;
+  }
+  *{
+    margin: auto;
+  }
+  #createBtn {
+    height: 80px;
+    width: 80px;
+    font-size: 40px;
+  }
+  .createBox{
+    z-index: 1000;
+  }
+  .innerBox{
+    background: lightgray;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+  border-radius: 10px;
+      height: 500px;
+      width: 400px;
+      box-shadow: 1px 1px 1px #999;
+      padding: 15px;
+  }
 }
