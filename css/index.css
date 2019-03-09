@@ -1,32 +1,107 @@
+/* T.O.C 
+
+1.) Base Styles
+2.) Bookmark List Styles
+3.) Button Styles
+4.) Form Styles
+5.) Header Styles
+6.) Utility Class Styles
+7.) Media Queries
+*/
+
+/* Base Styles */
+
 * {
-  /* margin:auto; */
-  font-family: "Oswald", sans-serif;
   box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
   font-size: 16px;
 }
 
 body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
 }
 
-header{
-  background: #333;
-  position: fixed;
-  width: 100%;
-  text-align: center;
-  padding: 15px;
+/* End of Base Styles */
+
+/* **************************************** */
+
+/* Bookmark List Styles*/
+
+#bmTitle {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.detailed {
+  height: 35px;
+  width: 35px;
+  border: none;
   color: white;
-  box-shadow: 1px 1px 1px #999;
+  margin-right: 5px;
+  font-size: 10px;
 }
 
-header h1{
-  font-size: 30px;
-  margin: 0;
+.bmContent {
+  padding-left: 5px;
+  text-align: left;
 }
 
-button, input[type="text"] {
+#detailedBox {
+  border: none;
+  padding: 5px;
+  margin: 5px;
+  width: 80%;
+  border-top: 0.5px solid #00000024;
+  margin-top: 20px;
+}
+
+#detailedBox p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.bmContainer {
+  padding: 0 15px;
+}
+
+.bookmarkItem {
+  border: 1px solid #99999929;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-bottom: 25px;
+  padding: 10px;
+  min-width: auto;
+  width: auto;
+}
+
+.urlBtnBox a {
+  font-size: 8px;
+}
+
+.urlBtnBox a:hover {
+  color: red;
+  font-size: 16px;
+}
+
+.btnBox {
+  margin-bottom: 10px;
+}
+
+.btnBoxMbl {
+  display: block;
+}
+
+/* End of Bookmark List Styles */
+
+/* **************************************** */
+
+/* Button Styles */
+
+button,
+input[type="text"] {
   padding: 5px;
 }
 
@@ -38,58 +113,155 @@ button:hover:disabled {
   cursor: default;
 }
 
-.btn{
+.btn {
   padding: 6px;
   background: #333;
   color: white;
   border-radius: 5px;
   font-size: 14px;
+  text-shadow: 1px 1px 1px #999;
 }
 
-.btn:focus{
-outline: none;
-}
-
-.btn > a{
-  text-decoration: none;
-  color: white;
-}
-
-#createBtn{
-  position: fixed;
-    bottom: 20px;
-    right: 20px;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    border: none;
-    font-size: 34px;
-    text-shadow: 1px 1px 1px #999;
-    box-shadow: 1px 1px 1px #999;
-}
-
-#createBtn:focus{
+.btn:focus {
   outline: none;
 }
 
-#formCreate{
+.btn > a {
+  text-decoration: none;
+  color: white;
+  box-shadow: 1px 1px 1px #999;
+}
+
+#createBtn {
+  bottom: 20px;
+  right: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: none;
+  font-size: 34px;
+}
+
+#createBtn:focus {
+  outline: none;
+}
+
+.deleteBtn {
+  background: lightgray;
+  border: none;
+  height: 35px;
+  width: 35px;
+  font-size: 14px;
+  font-weight: 700;
+  color: red;
+}
+
+#delete {
+  display: none;
+}
+
+#detailed {
+  display: none;
+}
+
+#submit {
+  background: #999;
+}
+
+/* End of Button Styles */
+
+/* **************************************** */
+
+/* Form Styles */
+
+#formCreate {
   margin-top: 15px;
 }
 
-.deleteBtn{
-    background: lightgray;
-    border: none;
-    height: 35px;
-  width: 35px;
-    box-shadow: 1px 1px 1px #999;
-    font-size: 17px;
-    text-shadow: 1px 1px 1px #999;
-    font-weight: 700;
-    color: red;
+.innerBox {
+  left: 0;
+  top: 0;
+  background: rgb(200, 200, 200);
+  height: 100vh;
+  padding: 15px;
 }
 
-.detailed,#bmTitle{
+#errorBox {
+  margin-bottom: 5px;
+}
+
+.innerBox h1 {
+  margin-bottom: 0;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+input,
+textarea {
+  margin-bottom: 10px;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #000;
+}
+
+textarea {
+  padding-left: 5px;
+}
+
+/* End of Form Styles */
+
+/* **************************************** */
+
+/* Header Styles*/
+
+header {
+  background: #333;
+  width: 100%;
+  padding: 15px;
+  color: white;
+}
+
+header h1 {
+  font-size: 30px;
+  margin: 0;
+}
+
+/* End of Header */
+
+/* Rating Filter */
+
+.filterHeader {
   display: inline-block;
+}
+
+#ratingFilter {
+  display: inline-block;
+  width: 22%;
+  border: 0.5px solid black;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 3px;
+  padding: 0;
+  display: inline-block;
+}
+
+#ratingFilter:focus {
+  outline: none;
+}
+
+#ratingBox {
+  float: right;
+  margin-top: 8px;
+}
+
+.ratingFilterBox {
+  margin-top: 125px;
+  margin-bottom: 20px;
 }
 
 .fa-star:before {
@@ -97,165 +269,73 @@ outline: none;
   text-shadow: 1px 1px 1px #999;
 }
 
-#bmTitle{ font-size: 16px;
-margin-bottom: 0;}
-
-.detailed{
-  height: 35px;
-  width: 35px;
-  border: none;
-  color: white;
-  background: #333;
-  box-shadow: 1px 1px 1px #999;
-  margin-right: 5px;
-  font-size: 14px;
-}
-.innerBox{
-  position: fixed;
-    left: 0;
-    top: 0;
-    text-align: center;
-    background: rgb(200,200, 200);
-    height: 100vh;
-    box-shadow: 1px 1px 1px #999;
-    padding: 15px;
-}
-
-#errorBox{
-  margin-bottom: 5px;
-}
-.innerBox h1{
-  margin-bottom: 0;
-}
-
-.stars .fa-stars{
+.stars .fa-stars {
   float: left;
 }
-input:focus,textarea:focus{
-  outline: none;
-}
 
-input,textarea{
-margin-bottom: 10px;
-background: none;
-border-top: none;
-border-left: none;
-border-right: none;
-border-bottom: 1px solid #000;
-}
+/* End of Rating Filter */
 
-textarea{
-  padding-left: 5px;
-}
+/* **************************************** */
 
-.bmContent{
-  padding-left: 5px;
-  text-align: left;
-}
+/* Utility Classes Styles*/
 
-/* #ratingBox,.stars, label{
-  float:left;
-} */
+.inline-block {
+  display: inline-block;
+}
 
 .hidden {
   display: none;
 }
 
-#submit{
-  background: #999;
-}
-
-#detailedBox{
-  border: none;
-    padding: 5px;
-    margin: 5px;
-    width: 80%;
-    border-top: .5px solid #00000024;
-    margin-top: 20px;
-}
-
-#detailedBox p{
-  margin: 8px 0;
-  font-size: 16px;
-}
-.bmContainer{
-  padding: 0 15px;
-}
-.bookmarkItem {
-  /* display: block; */
-  border: 1px solid #99999929;
-    box-shadow: 1px 1px 1px #999;
-    border-radius: 5px;
-  color: #666;
-  font-style: italic;
-  font-size: 20px;
-  margin-bottom: 25px;
-  padding:10px;
-  min-width: auto;
-  width: auto;
-}
-
-.filterHeader{
-  display: inline-block;
-}
-#ratingFilter{
-  color: #666;
-    font-style: italic;
-  display: inline-block;
-  width: 22%;
-  border: .5px solid black;
-  font-weight: 500;
-  font-size: 20px;
-  border-radius: 3px;
-  padding: 5px 0;
-  display: inline-block;
-}
-
-#ratingBox{
-  float: right;
-    margin-top: 8px;
-}
-
-#ratingFilter:focus{
-  outline: none;
-}
-
-.ratingFilterBox{
-  margin-top: 125px;
-  margin-bottom: 20px;
-  color: #666;
-    font-style: italic;
-}
-
-.urlBtnBox a{
-  font-size: 8px;
-}
-.urlBtnBox a:hover{
-color: blue;
-font-size: 16px;
-}
-
-.btnBox{
-  margin-bottom: 10px;
-}
-
-/* Utility Classes */
-.redText{
+.redText {
   color: red;
 }
-.blueText{
-  color:blue;
+
+.blueText {
+  color: blue;
 }
 
-.smallText{
+.greyText {
+  color: #666;
+}
+
+.smallText {
   font-size: 12px;
 }
+
+.box-shadow {
+  box-shadow: 1px 1px 1px #999;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* End of Utility Class Styles */
+
+/* **************************************** */
+
 /* Media Queries */
+
 @media (min-width: 600px) {
-  .ratingFilterBox{
+  .btnBoxMbl {
+    display: none;
+  }
+  #delete {
+    display: inline-block;
+  }
+
+  #detailed {
+    display: inline-block;
+  }
+  .ratingFilterBox {
     margin-top: 90px;
   }
-  #ratingFilter{
+  #ratingFilter {
     display: inline-block;
     width: 15%;
   }
@@ -263,7 +343,7 @@ font-size: 16px;
     max-width: 600px;
     width: 550px;
   }
-  *{
+  * {
     margin: auto;
   }
   #createBtn {
@@ -271,20 +351,21 @@ font-size: 16px;
     width: 80px;
     font-size: 40px;
   }
-  .createBox{
+  .createBox {
     z-index: 1000;
   }
-  .innerBox{
+  .innerBox {
     background: lightgray;
     display: flex;
     flex-direction: column;
     margin: auto;
-    position: fixed;
-    top: 0; left: 0; bottom: 0; right: 0;
-  border-radius: 10px;
-      height: 500px;
-      width: 400px;
-      box-shadow: 1px 1px 1px #999;
-      padding: 15px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 10px;
+    height: 500px;
+    width: 400px;
+    padding: 15px;
   }
 }
