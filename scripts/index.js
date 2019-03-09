@@ -14,4 +14,4 @@ function bindEventHandlers() {
   bookmarkList.handleFilter();
 }
 
-$(handleBookMarkApp);
+$(startApp);
