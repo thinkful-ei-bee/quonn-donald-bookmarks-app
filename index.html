@@ -1,138 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css/grid-css.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css/index.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    <link rel="stylesheet" type="text/css" media="screen" href="css/grid-css.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css"/>
+    <link rel="stylesheet" 
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous"/>
   </head>
   <body>
-    <div class="grid-container">
-      <header class="box-shadow fixed text-center">
-        <div>
+    <div class="grid-container" role = "grid" >
+      <header class="box-shadow fixed text-center" role ="heading">
           <h1>Bookmarks App</h1>
-        </div>
       </header>
-      <div class="grid-item side"></div>
-      <div class="grid-item">
+      <div class="grid-item" role = "gridcell">
         <!-- Header -->
-
-        <div class="ratingFilterBox greyText">
-          <p class="filterHeader">Display Bookmarks With Atleast</p>
+        <div class="ratingFilterBox greyText" role = "form">
+          <p class="filterHeader" role = "tooltip">Display Bookmarks With Atleast</p>
           <!-- Rating form -->
-          <select name="" id="ratingFilter" class="greyText">
-            <option id="1">1 stars</option>
-            <option id="2">2 Stars</option>
-            <option id="3">3 Stars</option>
-            <option id="4">4 Stars</option>
-            <option id="5">5 Stars</option>
-            <option id="0" selected>Not Rated</option>
+          <select name="" id="ratingFilter" class="greyText" role= "listbox">
+            <option id="1" role = "option">1 stars</option>
+            <option id="2" role = "option">2 Stars</option>
+            <option id="3" role = "option">3 Stars</option>
+            <option id="4" role = "option">4 Stars</option>
+            <option id="5" role = "option">5 Stars</option>
+            <option id="0" role = "option" selected>Not Rated</option>
           </select>
-          <!-- <p class="filterHeader">Bookmarks</p> -->
         </div>
-
-        <button id="createBtn" class="fixed box-shadow">+</button>
-
+        <button id="createBtn" class="fixed box-shadow" role = "button">+</button>
         <!-- Book mark creation form -->
-        <div class="createBox hidden">
+        <div class="createBox hidden" role = "form">
           <div class="innerBox box-shadow fixed text-center">
-            <h1>Add Your Bookmark Here</h1>
+            <h1 role= "tooltip">Add Your Bookmark Here</h1>
             <form id="formCreate" required>
-              <div>
-                <input
-                  id="title"
-                  name="title"
-                  type="text"
-                  placeholder="Enter Title Here"
-                  maxlength="53"
-                  required
-                />
+              <div role="textbox" >
+                <input id="title" name="title" type="text" 
+                placeholder="Enter Title Here" maxlength="53" 
+                required/>
               </div>
-              <div>
-                <input
-                  id="url"
-                  name="link"
-                  type="text"
-                  placeholder="Enter URL here"
-                  required
-                />
-              </div>
-
-              <textarea
-                id="desc"
-                name="desc"
-                rows="1"
-                cols="24"
-                placeholder="Description goes here"
-              ></textarea>
-
-              <div id="errorBox" class="redText"></div>
-
-              <p>Select a rating:</p>
-              <div id="ratingFilterBox">
-                <div>
+              <div role="textbox">
+                <input id="url" name="link" type="text" placeholder="Enter URL here"
+                 required /></div>
+              <textarea id="desc" name="desc" rows="1" cols="24"
+                placeholder="Description goes here" role="textbox"></textarea>
+              <div id="errorBox" class="redText" role="dialog"></div>
+              <p role = "tooltip">Select a rating:</p>
+              <div id="ratingFilterBox" role = 'radiogroup'>
+                <div role = 'radio'>
                   <input type="radio" class="stars" name="rating" value="5" />
                   <label for="5star"
                     ><i class="fas fa-star"></i><i class="fas fa-star"></i
                     ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                    ><i class="fas fa-star"></i
-                  ></label>
+                    ><i class="fas fa-star"></i>
+                  </label>
                 </div>
-                <div>
+                <div role = 'radio'>
                   <input type="radio" class="stars" name="rating" value="4" />
                   <label for="4star"
                     ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                  ></label>
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </label>
                 </div>
-                <div>
+                <div role = 'radio'>
                   <input type="radio" class="stars" name="rating" value="3" />
                   <label for="3star"
                     ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                    ><i class="fas fa-star"></i
-                  ></label>
+                    ><i class="fas fa-star"></i>
+                  </label>
                 </div>
-                <div>
+                <div role = 'radio'>
                   <input type="radio" class="stars" name="rating" value="2" />
                   <label for="2star"
-                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                  ></label>
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </label>
                 </div>
-                <div>
+                <div role = 'radio'>
                   <input type="radio" class="stars" name="rating" value="1" />
                   <label for="1star"><i class="fas fa-star"></i></label>
                 </div>
               </div>
               <div>
-                <input id="submit" class="btn" type="submit" />
+                <input id="submit" class="btn" type="submit" role = "button"/>
               </div>
             </form>
           </div>
         </div>
         <!-- End of form -->
-
         <!-- Bookmark Container -->
-        <div class="bmContainer"></div>
+        <div class="bmContainer" role = "list"></div>
       </div>
-      <div class="grid-item side"></div>
     </div>
 
     <script
