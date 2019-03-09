@@ -98,7 +98,12 @@ const bookmarkList = (function() {
     if (store.errorCode.errorMessage !== "") {
       $("#errorBox").html(`<p>${store.errorCode.errorMessage}</p>`);
     }
-    if (store.ratingFilter.filterVal !== null) {
+    if (store.ratingFilter.filterVal === "0") {
+      items = items.filter(item => item.rating >= store.ratingFilter.filterVal);
+    } else if (
+      store.ratingFilter.filterVal !== null &&
+      store.ratingFilter.filterVal !== 0
+    ) {
       items = items.filter(item => item.rating >= store.ratingFilter.filterVal);
     }
     const bookmarkString = generateBookmarkString(items);
@@ -117,7 +122,13 @@ const bookmarkList = (function() {
       const title = $("#title").val();
       const url = $("#url").val();
       const desc = $("#desc").val();
-      const rating = $("input[name=rating]:checked").val();
+      const rating = function() {
+        if (!$("input[name=rating]:checked").val()) {
+          return 0;
+        } else if ($("input[name=rating]:checked").val()) {
+          return $("input[name=rating]:checked").val();
+        }
+      };
       createNewBM(title, url, desc, rating);
       clearForm();
     });
@@ -148,6 +159,7 @@ const bookmarkList = (function() {
     $("#url").val("");
     $("#desc").val("");
     $("textarea[name=rating]:checked").val("");
+    $("input[name=rating]:checked").attr("checked", false);
   };
 
   const handleCreateFormBtn = function() {
@@ -214,6 +226,7 @@ const bookmarkList = (function() {
       let selected = $(this)
         .children("option:selected")
         .attr("id");
+
       store.ratingFilter.filterVal = selected;
       renderBM();
     });
