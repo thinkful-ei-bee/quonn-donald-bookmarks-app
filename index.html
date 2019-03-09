@@ -25,107 +25,113 @@
     />
   </head>
   <body>
-    <!-- <div class="grid-container">
-      <div class="grid-item">1</div>
-      <div class="grid-item">2</div>
-      <div class="grid-item">3</div>
-      <div class="grid-item">4</div>
-      <div class="grid-item">5</div>
-      <div class="grid-item">6</div>
-      <div class="grid-item">7</div>
-      <div class="grid-item">8</div>
-      <div class="grid-item">9</div>
-    </div> -->
-
-    <!-- Header -->
-    <header>
-      <h1>Bookmarks List</h1>
-    </header>
-
-    <button id="createBtn">Create Bookmark</button>
-
-    <h3>Minimum Rating</h3>
-
-    <!-- Rating form -->
-    <select name="" id="ratingFilter">
-      <option selected id = 1>1 star</option>
-      <option id = 2>2 Star</option>
-      <option id = 3>3 Star</option>
-      <option id = 4>4 Star</option>
-      <option id = 5>5 Star</option>
-    </select>
-
-    <hr />
-    <!-- Book mark creation form -->
-    <div class="createBox hidden">
-      <h3>Create Form</h3>
-      <form id="formCreate" required>
-        <input
-          id="title"
-          name="title"
-          type="text"
-          placeholder="Enter Title Here"
-        />
-        <input id="url" name="link" type="text" placeholder="Enter URL here" required/>
-        <input
-          id="desc"
-          name="description"
-          type="text"
-          placeholder="Description goes here"
-        required/>
-        <p>Select a rating:</p>
+    <div class="grid-container">
+      <header class="box-shadow fixed text-center">
         <div>
-          <input id="rating" type="radio" id="5star" name="rating" value="5" />
-          <label for="5star"
-            ><i class="fas fa-star"></i><i class="fas fa-star"></i
-            ><i class="fas fa-star"></i><i class="fas fa-star"></i
-            ><i class="fas fa-star"></i
-          ></label>
+          <h1>Bookmarks App</h1>
         </div>
-        <div>
-          <input id="rating" type="radio" id="4star" name="rating" value="4" />
-          <label for="4star"
-            ><i class="fas fa-star"></i><i class="fas fa-star"></i
-            ><i class="fas fa-star"></i><i class="fas fa-star"></i
-          ></label>
+      </header>
+      <div class="grid-item side"></div>
+      <div class="grid-item">
+        <!-- Header -->
+
+        <div class="ratingFilterBox greyText">
+          <p class="filterHeader">Display Bookmarks With Atleast</p>
+          <!-- Rating form -->
+          <select name="" id="ratingFilter class="greyText">
+            <option id="1" selected>1 stars</option>
+            <option id="2">2 Stars</option>
+            <option id="3">3 Stars</option>
+            <option id="4">4 Stars</option>
+            <option id="5">5 Stars</option>
+          </select>
+          <!-- <p class="filterHeader">Bookmarks</p> -->
         </div>
-        <div>
-          <div>
-            <input
-              id="rating"
-              type="radio"
-              id="3star"
-              name="rating"
-              value="3"
-            />
-            <label for="3star"
-              ><i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-            ></label>
+
+        <button id="createBtn" class="fixed box-shadow">+</button>
+
+        <!-- Book mark creation form -->
+        <div class="createBox hidden">
+          <div class="innerBox box-shadow fixed text-center">
+            <h1>Add Your Bookmark Here</h1>
+            <form id="formCreate" required>
+              <div>
+                <input
+                  id="title"
+                  name="title"
+                  type="text"
+                  placeholder="Enter Title Here"
+                  maxlength="53"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  id="url"
+                  name="link"
+                  type="text"
+                  placeholder="Enter URL here"
+                  required
+                />
+              </div>
+
+              <textarea
+                id="desc"
+                name="desc"
+                rows="1"
+                cols="24"
+                placeholder="Description goes here"
+              ></textarea>
+
+              <div id="errorBox" class="redText"></div>
+
+              <p>Select a rating:</p>
+              <div id="ratingFilterBox">
+                <div>
+                  <input type="radio" class="stars" name="rating" value="5" />
+                  <label for="5star"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                  ></label>
+                </div>
+                <div>
+                  <input type="radio" class="stars" name="rating" value="4" />
+                  <label for="4star"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ></label>
+                </div>
+                <div>
+                  <input type="radio" class="stars" name="rating" value="3" />
+                  <label for="3star"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                  ></label>
+                </div>
+                <div>
+                  <input type="radio" class="stars" name="rating" value="2" />
+                  <label for="2star"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ></label>
+                </div>
+                <div>
+                  <input type="radio" class="stars" name="rating" value="1" />
+                  <label for="1star"><i class="fas fa-star"></i></label>
+                </div>
+              </div>
+              <div>
+                <input id="submit" class="btn" type="submit" />
+              </div>
+            </form>
           </div>
-          <div>
-            <input
-              id="rating"
-              type="radio"
-              id="2star"
-              name="rating"
-              value="2"
-            />
-            <label for="2star"
-              ><i class="fas fa-star"></i><i class="fas fa-star"></i
-            ></label>
-          </div>
-          <input type="radio" id="1star" name="rating" value="1" />
-          <label for="1star"><i class="fas fa-star"></i></label>
         </div>
-        <input id="submit" type="submit" />
-      </form>
-    </div>
-    <!-- End of form -->
-    <hr />
-    <!-- Bookmark Container -->
-    <div class="bmContainer">
-      
+        <!-- End of form -->
+
+        <!-- Bookmark Container -->
+        <div class="bmContainer"></div>
+      </div>
+      <div class="grid-item side"></div>
     </div>
 
     <script
