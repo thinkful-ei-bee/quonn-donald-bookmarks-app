@@ -131,6 +131,7 @@ const bookmarkList = (function() {
       const title = $('#title').val();
       const url = $('#url').val();
       const desc = $('#desc').val();
+      // one line if-else that looks at whether rating was chosen
       const rating = (!$('input[name=rating]:checked').val()) ? (0) : ($('input[name=rating]:checked').val());
       createNewBM(title, url, desc, rating);
       clearForm();
